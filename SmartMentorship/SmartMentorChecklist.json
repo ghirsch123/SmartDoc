@@ -1,0 +1,237 @@
+{
+    "sections": {
+        "Vacuum": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 2": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 3": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 4": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 5": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 6": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        },
+        "Column": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 2": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 3": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 4": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        },
+        "Stage": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 2": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 3": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        },
+        "Detectors": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        },
+        "Electron Optics": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 2": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        },
+        "LREM/ASAP/SVSEM": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 2": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 3": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        },
+        "Software/PC": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 2": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 3": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 4": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 5": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        },
+        "Miscellaneous": {
+            "Example Item 1": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 2": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            },
+            "Example Item 3": {
+                "Principles": "Please edit this information in the SmartMentorChecklist.json file.",
+                "DisplayProcedure": "Please edit this information in the SmartMentorChecklist.json file.",
+                "References": "Please replace with correct reference.",
+                "MentorInitials": "",
+                "DateComments": "",
+                "Level": ""
+            }
+        }
+    },
+    "levels": ["Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6"]
+}

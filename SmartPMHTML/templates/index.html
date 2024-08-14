@@ -1,0 +1,160 @@
+<!-- HTML web format for SmartPM -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVO PM Procedure</title>
+    <!--adding Bootstrap cascading style sheet (CSS) to improve website layout-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"></linkhref>
+    <!--additional styling-->
+    <style>
+        body {
+            padding: 20px; /*general spacing*/
+            background-color: #f2f2f2;
+            color: #c01515;
+        }
+        .section-header {
+            margin-top: 40px; /*adds margins for section header spacing*/
+            text-align: center;
+            color: #c01515;; /* text color */
+            text-decoration: underline;
+        }
+        .form-group {
+            margin-bottom: 20px; /*adds margins for the spacing between each step*/
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between; /*adding button spacing*/
+        }
+        .btn-container form {
+            margin: 0; /*removing default form margins*/
+        }
+        .bottom-buttons {
+            display: flex;
+            justify-content: space-between; /* Align buttons to far left and far right */
+        }
+        .bottom-buttons .left-button {
+            align-self: flex-start; /* Align the submit button to the left */
+        }
+        .bottom-buttons .right-button {
+            align-self: flex-end; /* Align the clear form button to the right */
+        }
+        .alert-messages {
+            text-align: center; /*center alerts*/
+            list-style-type: none; /*remove bullets*/
+            padding:0; /*remove padding*/
+        }
+        .title-text{
+            text-align: center;
+            padding: 10px; /* Padding around the title */
+            border: 2px solid #c01515; /* colored border around the title */
+            background-color: #c01515; /* Light grey background */
+            color: #f2f2f2; /* text color */
+            border-radius: 100px; /*Rounding the border*/
+        }
+        .author-container{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .author-text{
+            border: 2px solid #c01515; /* Border color */
+            border-radius: 100px; /* Rounded corners */
+            display: inline-block;
+            padding: 5px 10px; /* Padding for the bubble effect */
+            color: #c01515;
+        }
+        .logo-image-left {
+            position: absolute; /* Position it absolutely */
+            top: -17.5px; /* Position it from the top */
+            left: 20px; /* Position it from the left */
+            width: 150px; /* Adjust the width as needed */
+            height: auto; /* Keep the aspect ratio */
+        }
+        .logo-image-right{
+            position: absolute; /* Position it absolutely */
+            top: -17.5px; /* Position it from the top */
+            right: 20px; /* Position it from the left */
+            width: 150px; /* Adjust the width as needed */
+            height: auto; /* Keep the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class = "container"> <!--now we make a bootstrap container for the overall layout-->
+        <img src = "{{ url_for('static', filename='Graham.png') }}" alt = "Logo" class = "logo-image-left">
+        <img src = "{{ url_for('static', filename='Graham.png') }}" alt = "Logo" class = "logo-image-right">
+        <h1 class = "title-text">EVO PM Procedure Steps</h1> <!--Bootstrap for title text-->
+
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class = "alert alert-warning"> <!--Bootstrap alert messages (special font like the buttons)-->
+                    <ul class = "alert-messages"> <!--area where naming convention for class is important-->
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('submit') }}" method="post" enctype="multipart/form-data">
+            {% for section_title, steps in procedure.items() %}
+                <h2 class = "section-header">{{ section_title }}</h2> <!--Bootstrap for section text-->
+                {% for step_title, step in steps.items() %}
+                    <div class = "step-spacing"> <!--Bootstrap for step spacing-->
+                        <h3>{{ step_title }}</h3>
+                        <p><strong>Principles:</strong> {{ step.Principles }}</p>
+                        <p><strong>Display Procedure:</strong> {{ step.DisplayProcedure }}</p>
+                        <p><strong>References:</strong> {{ step.References }}</p>
+
+                        <label for="comment_{{ section_title }}_{{ step_title }}">Comment:</label>
+                        <input type="text" name="comment_{{ section_title }}_{{ step_title }}" id="comment_{{ section_title }}_{{ step_title }}" value="{{ step.Comment }}">
+                        <br>
+
+                        <label for="status_{{ section_title }}_{{ step_title }}">Status:</label>
+                        <select name="status_{{ section_title }}_{{ step_title }}" id="status_{{ section_title }}_{{ step_title }}">
+                            <option value="">--Select Status--</option>
+                            {% for option in step.Status %}
+                            <option value="{{ option }}" {% if step.SavedStatus == option %}selected{% endif %}>{{ option }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        
+                        <label for="image_{{ section_title }}_{{ step_title }}">Upload Image:</label>
+                        <input type="file" name="image_{{ section_title }}_{{ step_title }}" id="image_{{ section_title }}_{{ step_title }}">
+                        {% if step.Image %}
+                            <p>Current Image: <a href="{{ url_for('uploaded_file', filename=step.Image) }}" target="_blank">{{ step.Image }}</a></p>
+                        {% endif %}
+                        <br>
+                        
+                        <input type="hidden" name="section" value="{{ section_title }}">
+                        <input type="hidden" name="step" value="{{ step_title }}">
+                    </div>
+                    <hr>
+                {% endfor %}
+            {% endfor %}
+            <div class = "bottom-buttons"> <!--Bootstrap for buttons-->
+                <div class = "left-button">
+                    <input type="submit" class = "btn btn-primary" value="Submit"> <!--btn-primary is CSS for submit button-->
+                </div>
+        </form>
+                <div class = "right-button">
+                    <form action = "{{ url_for('delete_data')}}" method = "post" style = "display:inline;">
+                        <input type="submit" class = "btn btn-danger" value="Clear Form"> <!--btn-danger is CSS for delete button-->
+                    </form>
+                </div>
+            </div>
+    </div>
+    <div class="author-container">
+        <p class="author-text">by Graham Hirsch and Joshua Smith</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

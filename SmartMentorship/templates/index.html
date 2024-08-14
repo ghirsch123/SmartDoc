@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Mentorship Procedure</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px; /*general spacing*/
+            background-color: #f2f2f2;
+            color: #c01515;
+        }
+        .section-header {
+            margin-top: 40px; /*adds margins for section header spacing*/
+            text-align: center;
+            color: #c01515;; /* ZEISS text color */
+            text-decoration: underline;
+        }
+        .form-group {
+            margin-bottom: 20px; /*adds margins for the spacing between each step*/
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between; /*adding button spacing*/
+        }
+        .btn-container form {
+            margin: 0; /*removing default form margins*/
+        }
+        .bottom-buttons {
+            display: flex;
+            justify-content: space-between; /* Align buttons to far left and far right */
+        }
+        .bottom-buttons .left-button {
+            align-self: flex-start; /* Align the submit button to the left */
+        }
+        .bottom-buttons .right-button {
+            align-self: flex-end; /* Align the clear form button to the right */
+        }
+        .title-text{
+            text-align: center;
+            padding: 10px; /* Padding around the title */
+            border: 2px solid #c01515; /* ZEISS colored border around the title */
+            background-color: #c01515; /* Light grey background */
+            color: #f2f2f2; /* ZEISS text color */
+            border-radius: 100px; /*Rounding the border*/
+        }
+        .author-container{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .author-text{
+            border: 2px solid #c01515; /* Border color */
+            border-radius: 100px; /* Rounded corners */
+            display: inline-block;
+            padding: 5px 10px; /* Padding for the bubble effect */
+            color: #c01515;
+        }
+        .logo-image-left {
+            position: absolute; /* Position it absolutely */
+            top: -17.5px; /* Position it from the top */
+            left: 20px; /* Position it from the left */
+            width: 150px; /* Adjust the width as needed */
+            height: auto; /* Keep the aspect ratio */
+        }
+        .logo-image-right{
+            position: absolute; /* Position it absolutely */
+            top: -17.5px; /* Position it from the top */
+            right: 20px; /* Position it from the left */
+            width: 150px; /* Adjust the width as needed */
+            height: auto; /* Keep the aspect ratio */
+        }
+        .signature-section {
+            margin-top: 20px;
+        }
+        .signature-section label {
+            font-weight: bold;
+        }
+        .signature-section input[type="text"],
+        .signature-section input[type="date"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src = "{{ url_for('static', filename='Graham.png') }}" alt = "Logo" class = "logo-image-left">
+        <img src = "{{ url_for('static', filename='Graham.png') }}" alt = "Logo" class = "logo-image-right">
+        <h1 class="title-text">Smart Mentorship Procedure</h1>
+
+        <form action="{{ url_for('submit') }}" method="post" enctype="multipart/form-data">
+            {% for section_title, steps in procedure.sections.items() %}
+                <h2 class="section-header">{{ section_title }}</h2>
+                {% for step_title, step in steps.items() %}
+                    <div class="step-spacing">
+                        <h3>{{ step_title }}</h3>
+                        <p><strong>Principles:</strong> {{ step.Principles }}</p>
+                        <p><strong>Display Procedure:</strong> {{ step.DisplayProcedure }}</p>
+                        <p><strong>References:</strong> {{ step.References }}</p>
+
+                        <label for="mentor_{{ section_title }}_{{ step_title }}">Mentor Initials:</label>
+                        <input type="text" name="mentor_{{ section_title }}_{{ step_title }}" id="mentor_{{ section_title }}_{{ step_title }}" value="{{ step.MentorInitials }}">
+                        <br>
+
+                        <label for="date_comments_{{ section_title }}_{{ step_title }}">Date/Comments:</label>
+                        <input type="text" name="date_comments_{{ section_title }}_{{ step_title }}" id="date_comments_{{ section_title }}_{{ step_title }}" value="{{ step.DateComments }}">
+                        <br>
+
+                        <label for="level_{{ section_title }}_{{ step_title }}">Level:</label>
+                        <select name="level_{{ section_title }}_{{ step_title }}" id="level_{{ section_title }}_{{ step_title }}">
+                            <option value="">--Select Level--</option>
+                            {% for level in procedure.levels %}
+                                <option value="{{ level }}" {% if step.Level == level %}selected{% endif %}>{{ level }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                    </div>
+                    <hr>
+                {% endfor %}
+            {% endfor %}
+            
+            <div class="signature-section">
+                <label for="fse_signature">FSE Signature:</label>
+                <input type="text" name="fse_signature" id="fse_signature" value="{{ procedure.Signatures.FSE_Signature }}">
+                <br>
+                <label for="fse_date">FSE Date:</label>
+                <input type="text" name="fse_date" id="fse_date" value="{{ procedure.Signatures.FSE_Date }}">
+                <br>
+                <label for="mentor_signature">Mentor Signature:</label>
+                <input type="text" name="mentor_signature" id="mentor_signature" value="{{ procedure.Signatures.Mentor_Signature }}">
+                <br>
+                <label for="mentor_date">Mentor Date:</label>
+                <input type="text" name="mentor_date" id="mentor_date" value="{{ procedure.Signatures.Mentor_Date }}">
+            </div>
+
+            <div class = "bottom-buttons"> <!--Bootstrap for buttons-->
+                <div class = "left-button">
+                    <input type="submit" class = "btn btn-primary" value="Submit"> <!--btn-primary is CSS for submit button-->
+                </div>
+        </form>
+                <div class = "right-button">
+                    <form action = "{{ url_for('delete_data')}}" method = "post" style = "display:inline;">
+                        <input type="submit" class = "btn btn-danger" value="Clear Form"> <!--btn-danger is CSS for delete button-->
+                    </form>
+                </div>
+            </div>
+    </div>
+
+    <div class="author-container">
+        <p class="author-text">by Graham Hirsch and Joshua Smith</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
